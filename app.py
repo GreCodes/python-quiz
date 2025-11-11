@@ -64,6 +64,13 @@ def quiz():
     return render_template("quiz.html", questions=QUESTIONS)
 
 
+import os  # add this at the top of the file if it's not there already
+
 if __name__ == "__main__":
-    # Use 5003 to avoid the "port already in use" problem
-    app.run(debug=True, port=5003)
+    port = int(os.environ.get("PORT", 5000))  # Render gives a PORT env var
+    app.run(
+        host="0.0.0.0",  # listen on all network interfaces
+        port=port,
+        debug=False      # debug off in production
+    )
+
