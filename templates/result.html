@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Results</title>
+    <style>
+        @font-face {
+            font-family: 'BoldPixels';
+            src: url('/static/fonts/BoldPixels.ttf') format('truetype');
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: #edcfe3;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'BoldPixels', sans-serif;
+            color: #5ea564;
+            margin-bottom: 40px;
+            font-size: 40px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .answers-review {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .answer-line {
+            margin: 4px 0;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #5291ba;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a.button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            color: rgb(174, 115, 172);
+            font-family: 'BoldPixels', sans-serif;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #111;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Quiz Results 🐍</h1>
+    <p class="subtitle">
+        You got <strong>{{ score }}</strong> out of <strong>{{ total }}</strong> correct ({{ percent }}%)
+    </p>
+
+    <div class="answers-review">
+        {% for q in questions %}
+        <div class="question-block">
+            <p class="question-text">{{ loop.index }}. {{ q.question }}</p>
+            <p class="answer-line"><strong>Your answer:</strong> {{ user_answers[q.id] or "(no answer)" }}</p>
+            <p class="answer-line"><strong>Correct answer(s):</strong> {{ answers[q.id] | join(", ") }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{{ url_for('quiz') }}" class="button">Try Again</a>
+    <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+</body>
+
+
+
+<footer>Made with ♡♡♡♡♡ by GreCodes in Denmark</footer>
+
+</html>

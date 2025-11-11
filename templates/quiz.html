@@ -1,0 +1,9 @@
+<form method="POST">
+    {% for q in questions %}
+    <div class="question-block">
+        <label for="{{ q.id }}">{{ loop.index }}. {{ q.question }}</label>
+        <input type="text" id="{{ q.id }}" name="{{ q.id }}" required autocomplete="off">
+    </div>
+    {% endfor %}
+    <button type="submit">Submit Answers</button>
+</form>

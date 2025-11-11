@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz</title>
+    <style>
+        @font-face {
+            font-family: 'BoldPixels';
+            src: url('/static/fonts/BoldPixels.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'BoldPixels', sans-serif;
+            font-size: 40px;
+            background: #edcfe3;
+            text-align: center;
+            margin-top: 150px;
+            margin-bottom: 0px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        h1 {
+            color: #5ea564;
+        }
+
+        p {
+            color: #555;
+        }
+
+        button {
+            background-color: #5291ba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .flash-text {
+            animation: flash 1.5s infinite;
+            color: rgb(98, 94, 94);
+        }
+
+        footer {
+            color: rgb(174, 115, 172);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #111;
+            font-size: 22px;
+        }
+
+        @keyframes flash {
+
+            0%,
+            50%,
+            yes 100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the Python Quiz 🐍</h1>
+    <p></p><span class="flash-text">PRESS START</span></p>
+    <form action="{{ url_for('quiz') }}">
+        <button type="submit">START</button>
+    </form>
+</body>
+
+
+
+
+<footer>Made with ♡♡♡♡♡ by GreCodes in Denmark</footer>
+
+</html>
